@@ -19,14 +19,22 @@ export default {
       ProductFilter,
       ProductList,
     },
+    methods: {
+        loadCategories() {
+            fetch('https://dummyjson.com/products/categories?limit=0').then(res => res.json()).then(json => {
+                this.allCategories = json;
+                json.forEach(category => this.selectedCategories.add(category.slug)); // Initial alles auswählen.
+            });
+        },
+        loadProducts() {
+            fetch('https://dummyjson.com/products?limit=0&select=category,title,images,price').then(res => res.json()).then(json =>
+                this.allProducts = json.products
+            );
+        },
+    },
     mounted() {
-        fetch('https://dummyjson.com/products/categories').then(res => res.json()).then(json => {
-            this.allCategories = json;
-            json.forEach(category => this.selectedCategories.add(category.slug)); // Initial alles auswählen.
-        });
-        fetch('https://dummyjson.com/products').then(res => res.json()).then(json =>
-            this.allProducts = json.products
-        );
+        this.loadCategories();
+        this.loadProducts();
     },
 }
 </script>
