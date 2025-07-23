@@ -5,6 +5,7 @@ export default {
             selected: true,
         };
     },
+    emits: ["change"],
     props: {
         category: Object,
     },
