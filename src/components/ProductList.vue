@@ -31,10 +31,10 @@ export default {
 </script>
 
 <template>
-    <div class="flex flex-col min-w-3/4">
-        <div>
-            <label v-for="category in categories">
-                <input v-model="selectedCategories" type="checkbox" :value="category" checked/>
+    <div class="flex flex-col gap-3 min-w-3/4">
+        <div class="flex gap-1 pt-3">
+            <label v-for="category in categories" class="bg-blue-500 rounded-md px-2 py-1 text-white">
+                <input v-model="selectedCategories" type="checkbox" class="hidden" :value="category" checked/>
                 {{ category }}
             </label>
         </div>
