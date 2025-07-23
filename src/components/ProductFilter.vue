@@ -2,17 +2,13 @@
 import ProductFilterButton from './ProductFilterButton.vue';
 
 export default {
-    data() {
-        return {
-            selectedCategories: new Set(),
-        };
-    },
     components: {
         ProductFilterButton,
     },
-    emits: ["change"],
+    emits: ["update:selectedCategories"],
     props: {
-        categories: Array,
+        categories        : Array,
+        selectedCategories: Set,
     },
     methods: {
         onFilterChange(categorySlug,isSelected) {
@@ -21,19 +17,14 @@ export default {
             } else {
                 this.selectedCategories.delete(categorySlug);
             }
+            this.$emit("update:selectedCategories",this.selectedCategories);
         },
-    },
-    watch: {
-        // Initial alle Kategorien auswählen.
-        categories(_,newCategories) {
-            this.selectedCategories = new Set(this.categories.map(category => category.slug));
-        }
     },
 }
 </script>
 
 <template>
-    <div class="flex flex-col gap-1 pt-3">
+    <div class="flex flex-col gap-1">
         <ProductFilterButton v-for="category in this.categories" @change="this.onFilterChange" :category="category"/>
     </div>
 </template>
