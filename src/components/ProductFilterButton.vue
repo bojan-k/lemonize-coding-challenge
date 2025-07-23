@@ -2,7 +2,7 @@
 export default {
     data() {
         return {
-            selected: true,
+            selected  : true,
         };
     },
     emits: ["change"],
@@ -18,8 +18,8 @@ export default {
 </script>
 
 <template>
-    <label class="bg-blue-500 rounded-md px-2 py-1 text-white">
-        <input v-model="selected" @change="this.onChange" type="checkbox" class="" :value="this.category.slug" checked/>
+    <label class="border border-blue-200 rounded-md px-2 py-1 cursor-pointer" :class='{ "bg-blue-500 hover:bg-blue-600 text-white": this.selected, "bg-white hover:bg-gray-100": !this.selected }'>
+        <input v-model="selected" @change="this.onChange" type="checkbox" class="hidden" :value="this.category.slug" checked/>
         {{ this.category.name }}
     </label>
 </template>
