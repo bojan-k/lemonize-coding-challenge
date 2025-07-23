@@ -13,7 +13,7 @@ export default {
 
 <template>
     <div class="flex flex-row gap-3 w-[1500px]">
-        <div class="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 gap-5">
+        <div class="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 gap-4">
             <Product v-for="product in products" :key="product.id" :product="product"/>
         </div>
     </div>
