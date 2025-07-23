@@ -1,15 +1,19 @@
 <script>
 export default {
     props: {
-        name: String,
+        name    : String,
+        category: String,
+        image   : String,
     },
 }
 </script>
 
 <template>
-    <span>{{ this.name }}</span>
+    <div class="flex flex-col border border-neutral-200 rounded-lg p-3">
+        <h1>{{ this.name }}</h1>
+        <img :src="this.image" class="self-center w-2/3">
+    </div>
 </template>
 
 <style lang="css" scoped>
-@import "tailwindcss";
 </style>
