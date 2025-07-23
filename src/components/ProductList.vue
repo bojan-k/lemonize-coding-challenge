@@ -22,11 +22,16 @@ export default {
             return this.products.filter(product => this.selectedCategories.includes(product.category));
         },
     },
+    watch: {
+        products(oldProducts,newProducts) {
+            this.selectedCategories = this.categories;
+        },
+    },
 }
 </script>
 
 <template>
-    <div class="flex flex-col">
+    <div class="flex flex-col min-w-3/4">
         <div>
             <label v-for="category in categories">
                 <input v-model="selectedCategories" type="checkbox" :value="category" checked/>
