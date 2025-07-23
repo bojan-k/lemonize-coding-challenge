@@ -32,7 +32,7 @@ export default {
 </script>
 
 <template>
-    <main class="flex justify-center h-full w-full">
+    <main class="flex justify-center items-start gap-2 pt-2 h-full min-w-3/4">
         <ProductFilter :categories="allCategories" v-model:selected-categories="selectedCategories"/>
         <ProductList :products="filteredProducts"/>
     </main>
