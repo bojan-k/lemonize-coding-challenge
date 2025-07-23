@@ -46,7 +46,7 @@ export default {
 </script>
 
 <template>
-    <main class="flex flex-row justify-center items-start gap-2 pt-2 h-full w-full">
+    <main class="flex flex-row xl:justify-center lg:justify-start items-start gap-2 pt-2 h-full w-full">
         <ProductFilter
             :categories="allCategories"
             v-model:selected-categories="selectedCategories"
