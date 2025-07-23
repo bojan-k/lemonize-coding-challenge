@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-    <div class="flex flex-row gap-3">
+    <div class="flex flex-row gap-3 w-[1500px]">
         <div class="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 gap-5">
             <Product
                 v-for="product in products" :key="product.id" :name="product.title" :category="product.category" :image="product.thumbnail"
