@@ -31,6 +31,12 @@ export default {
                 this.allProducts = json.products
             );
         },
+        onSelectAll() {
+            this.selectedCategories = new Set(this.allCategories.map(category => category.slug));
+        },
+        onSelectNone() {
+            this.selectedCategories.clear();
+        }
     },
     mounted() {
         this.loadCategories();
@@ -41,8 +47,15 @@ export default {
 
 <template>
     <main class="flex flex-row justify-center items-start gap-2 pt-2 h-full w-full">
-        <ProductFilter :categories="allCategories" v-model:selected-categories="selectedCategories"/>
-        <ProductList :products="filteredProducts"/>
+        <ProductFilter
+            :categories="allCategories"
+            v-model:selected-categories="selectedCategories"
+            @select-all="this.onSelectAll"
+            @select-none="this.onSelectNone"
+        />
+        <ProductList
+            :products="filteredProducts"
+        />
     </main>
 </template>
 
